@@ -501,3 +501,14 @@ margin-right: 2rem;
 }
 
 
+.search-result{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: larger;
+  color: #d1d0ff;
+}
+ a{
+color: #cbc7e4;
+text-decoration: none;
+}

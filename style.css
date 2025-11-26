@@ -3,8 +3,10 @@
 
 :root{
     --color-bg:#fff;
-    --color-header: #B388EB;
-    --color-search:#7a67f4;
+    --color-header: #6b56d275;
+    --color-search:#95599c23;
+    --color-delete-btn:#991b90f3;
+    --color-add-btn :#7a67f4;
 }
 
 body{
@@ -27,7 +29,7 @@ overflow-x: hidden;
 }
 
 header{
-  background-color:#5248bea8;
+  background-color:var(--color-header);
   color: #fff;
   width: 100%;
   text-align: center;
@@ -100,7 +102,8 @@ border: none;
 cursor: pointer;
 margin-top: 5rem;
 font-size: 1.16rem;
-background-color: #544c8061;
+background-color: var(--color-search);
+
 }
 
 
@@ -139,7 +142,7 @@ color: #4040407c;
 .save-btn{
     width: 10rem;
   border-radius: 1rem;
-    background-color:#7a67f4;
+    background-color:var(--color-add-btn);
   border:none;
       border:  1px solid #7a67f4;
   color: #fff;
@@ -161,15 +164,6 @@ color: #4040407c;
 
 
 
-.list-card{
-display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  justify-content: center;
-  border:1px solid ;
-    border-radius: 1rem;
-  padding: 2rem 2rem 2rem 2rem;
-  width: 22rem;
-}
 
 #thumb-nail{
   column-gap: 6rem;
@@ -210,15 +204,7 @@ border-radius: 1rem;
 }
 
 
-.saved-books-container {
-display: flex;
-flex-direction: column;
-font-size: 1.5rem;
-width: 100%;
-row-gap:1rem;
-padding: 2rem;
 
-}
 .lists img{
   width: 22rem;
   border-radius: 1rem;
@@ -231,25 +217,49 @@ padding: 2rem;
   border: none;
   width: 14rem;
   border-radius: 1rem;
-  background-color: #7a67f4;
+  background-color:var(--color-add-btn);
   margin-bottom: 5rem;
+margin-top: 2rem;
 
 }
 
 
-.back-btn{
+.back-btn, .cards-back-btn{
   width: 2.5rem;
   font-size: xx-large;
   color: #fff;
   border: none;
   cursor: pointer;
   background-color:#b388eb00;
+
+}
+.back-btn{
+  margin-left: -23rem;
+  margin-top: 3rem;
 }
 .delete-btn{
   padding: 1rem;
-  background-color: #9e69e3c9;
+  background-color:var(--color-delete-btn);
   color: #fff;
-  border-radius: 10px;
+  border-radius:10rem;
+  margin-left:17rem;
+  margin-top: 1rem;
+  font-size: large;
+  border: none;
+}
+ .details{
+  background-color: #ffffff21;
+  line-height: 1.5rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  
+}
+
+
+.lists p, h3{
+  margin-bottom: 1.5rem;
+  margin-top: 2rem;
+  font-size: larger;
 }
 /* viewport on small screen*/
 @media screen and (max-width: 700px) {
@@ -354,10 +364,13 @@ cursor: pointer;
 }
 
 .card-list-container{
+  display: flex;
+
   width: 100%;
   margin: 0;
   
 }
+
 
 .list-card{
   display: flex;
@@ -416,31 +429,26 @@ margin-right: 2rem;
 
   
 }
-
 .add-btn{
-  font-size: 1.4rem;
-  color: #fff;
-  padding: 1.2rem ;
-  border: none;
-  width: 14rem;
-  border-radius: 1rem;
-  background-color: #7a67f4;
-  margin-bottom: 5rem;
-  margin-top: 3rem;
+  margin-left: 6.4rem;
 }
-
-
-}
-
-
 .card-list-container{
   display: flex;
-  flex-direction: column;
-justify-content: center;
   width: 95%;
   row-gap:2rem;
 
 }
+.list-card{
+  display: flex;
+  justify-content: flex-start;
+  align-self: center;
+  
+}
+
+
+}
+
+
 
 
 .list-card{
@@ -451,6 +459,12 @@ justify-content: center;
   background-color:#796b8a34;
   font-size: 1.3rem;
   color: #fff;
+    border:1px solid #b5ade3;
+    border-radius: 1rem;
+  padding: 2rem 2rem 2rem 2rem;
+  width: 22rem;
+  
+
 }
 
 
@@ -469,5 +483,18 @@ justify-content: center;
 
 li{
   list-style: none;
+
 }
 
+
+.lists a{
+  color: #fff;
+  text-decoration: none;
+}
+
+.card-list-container{
+    display: flex;
+    flex-direction: column;
+gap: 2rem;
+
+}

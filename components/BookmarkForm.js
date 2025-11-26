@@ -2,7 +2,8 @@
   const form = document.getElementById('bookmark-form');
   const cardListContainer = document.querySelector('.card-list-container');
   const container = document.querySelector('.container');
-const wrapper = document.querySelector('.wrapper');
+    const categories = document.querySelector('.category-container');
+
   form.innerHTML = '';
   form.style.display = 'flex';
 
@@ -34,7 +35,7 @@ const wrapper = document.querySelector('.wrapper');
   cancelBtn.classList.add('cancel-btn');
   cancelBtn.textContent = 'Cancel';
   
-  btnContainer.append(saveBtn, cancelBtn);
+  btnContainer.append( cancelBtn, saveBtn);
   form.append(titleInput, urlInput, imageFileInput, description, btnContainer);
 
   saveBtn.addEventListener('click', () => {
@@ -88,7 +89,9 @@ const wrapper = document.querySelector('.wrapper');
 
   cancelBtn.addEventListener('click', () => {
     form.style.display = 'none';
-    cardListContainer.style.display = 'flex';
+
+    cardListContainer.style.display = 'none';
+    categories.style.marginTop ='4rem'
   container.style.display='flex';
   });
 }

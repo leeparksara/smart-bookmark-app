@@ -41,10 +41,7 @@ function onBookmarkSave(bookmark) {
 
   renderCardList(bookmark.categoryId, newBookmark, onBookmarkSave);
 
-  addBackButton(() => {
-    container.innerHTML = '';
-    renderCategoryList(onCategoryClick);
-  });
+
 }
 
 

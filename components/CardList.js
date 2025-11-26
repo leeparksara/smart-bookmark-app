@@ -9,22 +9,22 @@ export function renderCardList(categoryId, bookmarks, onSave) {
     const form = document.getElementById('bookmark-form');
   const cardListContainer = document.querySelector('.card-list-container');
   const container = document.querySelector('.container');
-  
   const categories = document.querySelector('.category-container');
   cardListContainer.innerHTML = '';
-
  const cardListBackBtn = document.createElement('button');
- cardListBackBtn.classList.add('back-btn');
+ cardListBackBtn.classList.add('cards-back-btn');
  cardListBackBtn.textContent = '←';
 
 
  cardListBackBtn.addEventListener('click', ()=>{
   categories.style.visibility='visible';
 categories.style.marginTop= '4rem'
+categories.style.marginBottom ='4rem'
   container.style.display = 'flex';
 
   cardListContainer.style.display ='none'
   form.style.display ='none';
+
 
   
  })
@@ -53,6 +53,8 @@ categories.style.marginTop= '4rem'
     });
     cardListContainer.appendChild( card);
   });
+
+
 
   // Show New Bookmark button only if there saved cards 
   if (filtered.length > 0){
@@ -84,14 +86,19 @@ categories.style.marginTop= '4rem'
 function displayBookmarkDetails(item) {
   const lists = document.querySelector('.lists');
   const container = document.querySelector('.container');
+const listContainer = document.querySelector('.lists-container');
 
-
+  const cardListContainer = document.querySelector('.card-list-container');
   
   lists.innerHTML = `
     <li>
-      <h3>${item.titleInput}</h3>
-      <a href="${item.urlInput}" target="_blank">${item.urlInput}</a>
-      <p>${item.description}</p>
+    <p>  ℍ Title </p>
+      <h3 class='details'> ${item.titleInput}</h3>
+      <p >🔗 Url</p>
+      <a class='details' href="${item.urlInput}" target="_blank">   ${item.urlInput}</a>
+      <p  > 📝 Description </p>
+      <p class='details'>  ${item.description}</p>
+      <p>📸 Photos</p>
       ${item.imageData ? `<img src="${item.imageData}" alt="${item.titleInput}" />` : ''}
     </li>
 
@@ -104,35 +111,41 @@ function displayBookmarkDetails(item) {
     renderCardList(item.categoryId, refreshed, currentOnSave);
     lists.innerHTML = '';
   });
-  lists.appendChild(delBtn);
+  lists.insertBefore(delBtn, lists.firstChild);
+  
 
-  if (window.listBackButton && typeof window.listBackButton === 'function') {
-    window.listBackButton(() => {
-      lists.innerHTML = ''; 
-      const cardListContainer = document.querySelector('.card-list-container');
-      cardListContainer.style.display = 'flex'; 
-      renderCardList(item.categoryId, loadBookmarks(), currentOnSave);
-    });
-  } 
 
+
+
+
+
+  const listBackBtn = document.createElement('button');
+ listBackBtn .classList.add('back-btn');
+listBackBtn .textContent = '←';
+
+
+ listBackBtn .addEventListener('click', ()=>{
+
+
+  container.style.display = 'none';
+lists.style.display='none'
+
+  cardListContainer.style.display ='flex'
+listBackBtn.style.display ='none';
+cardListContainer.style.marginTop = '5rem'
+
+  
+ })
+
+ listContainer.insertBefore(listBackBtn,  listContainer.firstChild);
+ lists.style.display ='flex'
 }
 
 
-function listBackButton(onBackClick) {
-
-  const lists = document.querySelector('.lists');
-  const backBtn = document.createElement('button');
-  backBtn.classList.add('back-btn');
-  backBtn.textContent = '←';
-  backBtn.addEventListener('click', onBackClick);
-  lists.insertBefore(backBtn, lists.firstChild);
-}
 
 
 
 
-// The components can call window.addBackButton
-window.listBackButton = listBackButton;
 
 
 

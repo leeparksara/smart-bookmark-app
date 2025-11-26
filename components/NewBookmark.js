@@ -15,30 +15,7 @@ export function addNewBookmark(categoryId, onSave){
     addBtn.style.display = 'none';
     cardListContainer.style.display = 'none';
     renderBookmarkForm(categoryId, onSave);
-    
   
-    if (window.addBackButton && typeof window.addBackButton === 'function') {
-      window.addBackButton(() => {
-        form.style.display = 'none';
-        form.innerHTML = '';
-        addBtn.style.display = 'flex';
-        cardListContainer.style.display = 'flex';
-      });
-    } else {
-      
-      const existingBackBtn = container.querySelector('.back-btn');
-      if (existingBackBtn) existingBackBtn.remove();
-      const backBtn = document.createElement('button');
-      backBtn.classList.add('back-btn');
-      backBtn.textContent = '← Back to Cards';
-      backBtn.addEventListener('click', () => {
-        form.style.display = 'none';
-        form.innerHTML = '';
-        addBtn.style.display = 'flex';
-        cardListContainer.style.display = 'flex';
-      });
-      container.insertBefore(backBtn, container.firstChild);
-    }
   });
   
   return addBtn;

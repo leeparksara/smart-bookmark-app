@@ -42,7 +42,6 @@ function onCategoryClick(categoryId) {
 function onBookmarkSave(bookmark) {
   newBookmark.push(bookmark);
   localStorage.setItem('bookmarks', JSON.stringify(newBookmark));
-
   renderCardList(bookmark.categoryId, newBookmark, onBookmarkSave);
 
 

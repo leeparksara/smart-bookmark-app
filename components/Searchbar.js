@@ -10,22 +10,34 @@ searchbarContainer.innerHtml = "";
 // Here I create the search input dinamically 
   const searchInput = document.createElement('input');
 searchInput.type = 'search';
-  searchInput.placeholder = 'Search bookmarks...';
+  searchInput.placeholder = 'Search ...';
 searchInput.classList.add('search');
 
 
   // This button is to search 
   const searchBtn = document.createElement('button');
   searchBtn.classList.add('search-btn');
-  searchBtn.textContent ='Search';
-searchBtn.style.padding ='0.8rem'
-searchBtn.style.borderRadius='1rem'
+  searchBtn.textContent ='⌕';
+  
+searchBtn.style.fontSize ='2.8rem'
+searchBtn.style.color ='#cacacaff'
+searchBtn.style.backgroundColor='transparent'
+searchBtn.style.border ='none'
+
 
   searchbarContainer.append( searchInput, searchBtn);
   
-  // everytime a user write something in the input, filter and show results
-  searchInput.addEventListener('input',()=>{
-    const q = (searchInput.value || '').trim().toLowerCase();
+
+  
+  
+
+
+
+  searchBtn.addEventListener('click', ()=>{
+
+
+
+      const q = (searchInput.value || '').trim().toLowerCase();
 // the loadbookmarks is the array from the local storage 
 
     const all = loadBookmarks();
@@ -40,18 +52,11 @@ if( q === ''){
   renderSearchedBookmarks(all);
   return;
 }
-
-
-
-  searchBtn.addEventListener('click', ()=>{
-    
-
-
 // filter 
 
 const filtered = all.filter(b=>{
   const title = (b.titleInput || '').toLowerCase();
-  const category = (b.category || '').toLowerCase();
+  const category = (b.categoryId || '').toLowerCase();
   const url = (b.urlInput || '').toLowerCase();
   const desc = (b.description || '').toLowerCase();
   
@@ -67,6 +72,7 @@ return(
 renderSearchedBookmarks(filtered)
 
   })
-  } )
 
 }
+
+  //searchInput.addEventListener('p')

@@ -30,7 +30,7 @@ export function getBookmarksByCategory(categoryId, bookmarks) {
 
 export function renderSearchedBookmarks(bookmarks) {
   const wrapper = document.querySelector('.wrapper');
-      const item = document.createElement('div');
+    
     const searchResultContainer = document.createElement('div');
     searchResultContainer.classList.add('result-container');
     const searchTitle = document.createElement('p');
@@ -42,10 +42,11 @@ searchTitle.textContent = `${bookmarks.length} found`
   const searchBackBtn = document.createElement('button');
  searchBackBtn.classList.add('back-btn');
 searchBackBtn.textContent = '←';
-
+searchBackBtn.style.marginTop ='10px'
+searchBackBtn.style.marginBottom ='10px'
 
   bookmarks.forEach(b => {
-
+  const item = document.createElement('div');
   
     item.classList.add('bookmark-item');
     item.style.color = 'white'
@@ -70,8 +71,9 @@ searchResultContainer.append("", item )
   });
 
  searchBackBtn.addEventListener('click', ()=>{
-
+  // Hide the search results
   searchResultContainer.style.display = 'none';
+  
 
   const wrapper = document.querySelector('.wrapper');
   wrapper.innerHTML = ''; 

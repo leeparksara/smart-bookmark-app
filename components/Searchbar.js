@@ -30,14 +30,17 @@ searchBtn.style.border ='none'
 
   
   
-
+const ERROR_CLASS = 'search-input-error';
 
 
   searchBtn.addEventListener('click', ()=>{
 
-
+const existingError = document.querySelector(`.${ERROR_CLASS}`);
+    if (existingError) {
+        existingError.remove();}
 
       const q = (searchInput.value || '').trim().toLowerCase();
+      
 // the loadbookmarks is the array from the local storage 
 
     const all = loadBookmarks();
@@ -45,12 +48,30 @@ searchBtn.style.border ='none'
       if(!Array.isArray(all)|| all.length === 0){
       renderSearchedBookmarks([]);
     
+    
       return;
       
     }
+
+
 if( q === ''){
-  renderSearchedBookmarks(all);
+
+
+  const emptyInputErrror = document.createElement('p');
+
+
+  emptyInputErrror.textContent = 'Please type something'
+  emptyInputErrror.style.color ='#ff0303ff';
+  emptyInputErrror.classList.add(ERROR_CLASS);
+
+  searchbarContainer.after(emptyInputErrror)
+
+  searchInput.focus();
+
   return;
+}
+if (existingError) {
+    existingError.remove();
 }
 // filter 
 

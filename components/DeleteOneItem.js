@@ -4,5 +4,7 @@ export function createDeleteButton(title, onDelete) {
   deleteBtn.classList.add('delete-btn');
   deleteBtn.textContent = 'Delete';
   deleteBtn.addEventListener('click', () => onDelete(title));
+
+
   return deleteBtn;
 }

@@ -1,3 +1,5 @@
+import {displayBookmarkDetails} from './CardList'
+
 // Load bookmarks from localStorage
 export function loadBookmarks() {
   const stored = JSON.parse(localStorage.getItem('bookmarks')) || [];
@@ -47,25 +49,26 @@ searchBackBtn.style.marginBottom ='10px'
 
   bookmarks.forEach(b => {
   const item = document.createElement('div');
-  
     item.classList.add('bookmark-item');
     item.style.color = 'white'
 
     const title = b.titleInput || "No title";
     const category = b.categoryId || "No category";
-    const url = b.urlInput || "";
+  
 
     item.innerHTML=`
   
-    <a href=${url}> 
+    
     <div class="search-result">
     <p class="category-title">Category: ${category}</p>
     <P> Bookmark:  ${title}</P>
     </div>
-    </a>
+    
     <p> 
 
-  `;
+  `; 
+
+
 searchResultContainer.append("", item )
     wrapper.appendChild( searchResultContainer);
   });
@@ -78,7 +81,7 @@ searchResultContainer.append("", item )
   const wrapper = document.querySelector('.wrapper');
   wrapper.innerHTML = ''; 
   location.reload(); 
- })
+ })  
 
  wrapper.prepend(searchBackBtn);
 

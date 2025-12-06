@@ -89,7 +89,7 @@ categories.style.marginBottom ='4rem'
 
 
 
-function displayBookmarkDetails(item) {
+export function displayBookmarkDetails(item) {
   const lists = document.querySelector('.lists');
   const container = document.querySelector('.container');
 const listContainer = document.querySelector('.lists-container');

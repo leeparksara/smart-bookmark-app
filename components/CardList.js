@@ -1,9 +1,8 @@
 import { addNewBookmark } from './newBookmark.js';
 import { renderBookmarkForm } from './bookmarkForm.js';
 import { createDeleteButton } from './deleteOneItem.js';
-import { deleteBookmark, loadBookmarks} from './storage.js';
+import { deleteBookmark, loadBookmarks} from './storage.js'; 
 import {createDeleteAllButton} from './deleteAll.js'
-
 let currentOnSave = null;
 // Tracking current category for back button
 export function renderCardList(categoryId, bookmarks, onSave) {
@@ -63,26 +62,35 @@ categories.style.marginBottom ='4rem'
 
 
   // Show New Bookmark button , and delete all button . only if there saved cards 
+  const newBookmarkButton = addNewBookmark(categoryId, onSave);
   if (filtered.length > 0){
-    const newBookmarkButton = addNewBookmark(categoryId, onSave);
+    
     const buttonsContainer = document.createElement('div');
-    buttonsContainer.classList.add('buttons-container');
+    buttonsContainer.classList.add('button-container');
 
-    const deleteAllBtn= createDeleteAllButton();
-    newBookmarkButton.style.order = '999'; 
+  
+    const deleteAllBtn = createDeleteAllButton(categoryId, currentOnSave);
+
+
+
+
+
     cardListContainer.style.display = 'flex';
       listContainer.style.display ='none';
     cardListContainer.style.flexDirection = 'column'; 
+    
     buttonsContainer.append(deleteAllBtn, newBookmarkButton)
-   wrapper.after(buttonsContainer);
+  
+  cardListContainer.appendChild(buttonsContainer);
     form.style.display = 'none';
 
 
     } else {
-      // If no cards saved I want to show the form to create first bookmark
-      form.style.display = 'flex';
-      cardListContainer.style.display = 'none';
-      renderBookmarkForm(categoryId, onSave);
+      // If no cards saved I want to display the category name and add new bookmark button 
+      
+      form.style.display = 'flex'
+renderBookmarkForm(categoryId, onSave);
+
     }
 }
 

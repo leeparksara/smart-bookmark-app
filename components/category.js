@@ -1,4 +1,4 @@
-import { renderCardList } from "./cardList";
+import { renderCardList } from "./CardList";
 
 // this component is to render the categories 
 export function renderCategoryList(onCategoryClick) {

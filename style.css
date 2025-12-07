@@ -366,12 +366,13 @@ border-radius: 2rem;
 
 .add-btn{
   font-size: 22.4px;
+  width: 15rem;
   color: #fff;
   border: none;
   cursor: pointer;
   border-radius: 16px;
   background-color:var(--color-add-btn);
-  padding: 0.8rem 1.5rem 0.8rem 1.5rem ;
+  padding: 1.2rem;
 }
 .buttons-container{
   display: flex;
@@ -556,10 +557,15 @@ margin-right: 32px;
   
 }
 .add-btn{
-  margin-left: 102.4px;
+  width: 12rem;
+  padding: 1rem;
+margin-top: 2rem;
+margin-left: 4.5rem;
 }
 .card-list-container{
   display: grid;
+  justify-content: center;
+
   width: 80%;
   row-gap:32px;
   margin-top: 96px;

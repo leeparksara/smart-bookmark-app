@@ -805,7 +805,7 @@ padding: 0.5rem;
 .loading-headline{
   font-size: larger;
   font-weight: bold;
-  letter-spacing: 0.1rem;
+  letter-spacing: 0.12rem;
 }
 .img {
   animation: float 4s ease-in-out ;

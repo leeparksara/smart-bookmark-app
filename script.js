@@ -14,7 +14,7 @@ const cardListContainer = document.querySelector('.card-list-container');
 
 listsContainer.style.display ='none'
 cardListContainer.style.display ='none'
-function init() {
+export function init() {
   renderSearchBar();
   renderCategoryList(onCategoryClick);
 
@@ -44,7 +44,7 @@ export function onCategoryClick(categoryId) {
   }
 }
 
-function onBookmarkSave(bookmark) {
+export function onBookmarkSave(bookmark) {
   
   const existing = loadBookmarks();
   existing.push(bookmark);

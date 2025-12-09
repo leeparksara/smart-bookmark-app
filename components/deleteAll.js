@@ -1,5 +1,5 @@
 import { deleteAllBookmarks, loadBookmarks } from "./storage";
-import { renderCardList } from "./cardList";
+
 import { renderBookmarkForm } from "./bookmarkForm";
 export function createDeleteAllButton(categoryId, onSave) {
   const cardListContainer = document.querySelector('.card-list-container');

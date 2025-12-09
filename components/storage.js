@@ -1,4 +1,4 @@
-import { displayBookmarkDetails } from "./CardList";
+
 
 // Load bookmarks from localStorage
 export function loadBookmarks() {

@@ -1,6 +1,8 @@
 ﻿
 import { renderSearchBar } from './components/searchbar.js';
 import { renderCardList } from './components/cardList.js';
+import { renderCategoryList } from './components/category';
+
 import { loadBookmarks , saveBookmark} from './components/storage.js';
 
 const container = document.querySelector('.container');

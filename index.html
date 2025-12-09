@@ -8,12 +8,14 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <script>
-        
-        if (window.location.pathname === '/' || window.location.pathname === '/index.html') {
-            window.location.replace('/pages/loading.html');
-        }
-    </script>
+      <script>
+    const loadedFlag = sessionStorage.getItem('loaded');
+
+    // ONLY redirect if the flag is NOT set AND we are on the root URL.
+    if (!loadedFlag && (window.location.pathname === '/' || window.location.pathname === '/index.html')) {
+        window.location.replace('/pages/loading.html');
+    }
+</script>
   <title>Stash</title>
 </head>
 

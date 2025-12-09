@@ -2,7 +2,7 @@
 import { renderCategoryList } from './components/Category.js';
 
 import { renderCardList } from './components/CardList.js';
-import { loadBookmarks, saveBookmark} from './components/storage.js';
+import { loadBookmarks, saveBookmark} from './components/storage.js'; 
 
 
 const container = document.querySelector('.container');
